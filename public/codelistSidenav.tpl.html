@@ -1,0 +1,52 @@
+<md-sidenav
+  class="md-sidenav-left"
+  md-component-id="left"
+  md-is-locked-open="$mdMedia('gt-md')"
+  md-whiteframe="4">
+
+  <md-toolbar class="md-theme-indigo">
+    <h1 class="md-toolbar-tools">홍길동님</h1>
+  </md-toolbar>
+  <md-content layout-padding ng-controller="LeftCtrl">
+    <div ng-controller="menuCntl">
+      <table class="table table-hover" >
+         <tr>
+          <th>
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+              <md-button class="md-fab" aria-label="Home">
+                <md-icon md-svg-src="img/frame/home.svg"></md-icon>
+              </md-button>
+
+              <md-button class="md-fab md-primary" aria-label="Use Android">
+                <md-icon md-svg-src="img/frame/talk.svg"></md-icon>
+              </md-button>
+
+              <md-button class="md-fab" ng-disabled="true" aria-label="Comment">
+                  <md-icon md-svg-src="img/frame/setting.svg"></md-icon>
+              </md-button>
+            </section>
+
+          </th>
+        </tr>
+        <tr ng-repeat="menu in menuList">
+          <td>
+            <a href={{menu.path}} ng-click="close()" class="md-primary md-hue-1" >
+               {{menu.name}}
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <md-button ng-click="close()" class="md-raised">LOG OUT</md-button>
+    </div>
+  <!--  데이터 전송
+  <div ng-controller="myCtrl">
+    <h1> {{myWelcome}} </h2>
+  </div> -->
+
+  <p hide show-gt-md>
+    This sidenav is locked open on your device. To go back to the default behavior,
+    narrow your display.
+  </p>
+</md-content>
+</md-sidenav>
